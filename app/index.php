@@ -1,47 +1,55 @@
-<?php
-
-$pdo = new PDO('mysql:host=mysql;dbname=world;charset=utf8', 'root', 'root');
-
-$stmt = $pdo->prepare("
-    select city.Name, city.District, country.Name as Country, city.Population
-    from city
-    left join country on city.CountryCode = country.Code
-    order by Population desc
-    limit 10
-");
-$stmt->execute();
-$cities = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-?>
-
 <!doctype html>
+
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Saurabh you Rock!</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 </head>
-<body style="background-color:#FFFF00;">
-    <h2>Most Populous Cities In The World</h2>
-    <table>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Country</th>
-            <th>District</th>
-            <th>Population</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach($cities as $city): ?>
-            <tr>
-                <td><?=$city['Name']?></td>
-                <td><?=$city['Country']?></td>
-                <td><?=$city['District']?></td>
-                <td><?=number_format($city['Population'], 0)?></td>
-            </tr>
-        <?php endforeach ?>
-    </tbody>
-    </table>
+<body>
+
+<LEFT>
+     <h1><FONT COLOR = #FF0033>Welcome page for my App</FONT> </h1>
+<h2>Docker Container Runing </h2>
+
+<table>
+  <tr>
+    <th>Container</th>
+    <th>Image</th>
+    <th>Port</th>
+  </tr>
+  <tr>
+    <td>Nginx</td>
+    <td>saurabhbahl19/app-nginx</td>
+    <td>80</td>
+  </tr>
+  <tr>
+    <td>Php</td>
+    <td>saurabhbahl19/app-php</td>
+    <td>9000</td>
+  </tr>
+  <tr>
+    <td>MySql</td>
+    <td>mysql:5.7.21</td>
+    <td>3306</td>
+  </tr>
+</table>
+
 </body>
 </html>
+
 

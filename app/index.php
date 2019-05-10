@@ -23,7 +23,7 @@ tr:nth-child(even) {
 <body>
 
 <LEFT>
-     <h1><FONT COLOR = #c0c0c0>Welcome page for my App</FONT> </h1>
+     <h1><FONT COLOR = #FF0000>Welcome page for my App</FONT> </h1>
 <h2>Docker Container Runing </h2>
 
 <table>
